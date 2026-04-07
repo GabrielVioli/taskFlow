@@ -35,8 +35,8 @@ Route::post("tags", [TagController::class, "store"]);
 
 
 #taskTag
-Route::post("projects/{idProject}/tasks/{taskId}/tags/{tagId}", [TagController::class, "attach"]);
-Route::delete("projects/{idProject}/tasks/{taskId}/tags/{tagId}", [TagController::class, "detach"]);
+Route::post("projects/{projectId}/tasks/{taskId}/tags/{tagId}", [TagController::class, "attach"]);
+Route::delete("projects/{projectId}/tasks/{taskId}/tags/{tagId}", [TagController::class, "detach"]);
 
 
 #profile
