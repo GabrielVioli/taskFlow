@@ -34,11 +34,10 @@ class TagController extends Controller
         ]);
     }
 
-    public function attach(string $taskId, string $tagId)
+    public function attach(string $projectId, string $taskId, string $tagId)
     {
-        $task = Task::findOrFail($taskId);
+        $task = Task::where('project_id', $projectId)->findOrFail($taskId);
 
-        // Vincula a tag à task sem duplicar
         $task->tags()->syncWithoutDetaching([$tagId]);
 
         return response()->json([
@@ -46,9 +45,9 @@ class TagController extends Controller
         ], 200);
     }
 
-    public function detach(string $taskId, string $tagId)
+    public function detach(string $projectId, string $taskId, string $tagId)
     {
-        $task = Task::findOrFail($taskId);
+        $task = Task::where('project_id', $projectId)->findOrFail($taskId);
 
         $task->tags()->detach($tagId);
 

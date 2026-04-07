@@ -23,7 +23,8 @@ class Task extends Model
 
 
     public function tags(): BelongsToMany {
-        return $this->belongsToMany(tag_task::class);
+        return $this->belongsToMany(Tag::class);
     }
+
 
 }

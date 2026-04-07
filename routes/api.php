@@ -29,16 +29,14 @@ Route::put("projects/{id}/tasks/{taskId}", [TaskController::class, "update"]);
 Route::delete("/projects/{id}/tasks/{taskId}", [TaskController::class, "destroy"]);
 
 
-
 #tags
 Route::get("tags", [TagController::class, "index"]);
 Route::post("tags", [TagController::class, "store"]);
 
 
 #taskTag
-Route::post("tasks/{taskId}/tags/{tagId}", [TagController::class, "attach"]);
-Route::delete("tasks/{taskId}/tags/{tagId}", [TagController::class, "detach"]);
-
+Route::post("projects/{idProject}/tasks/{taskId}/tags/{tagId}", [TagController::class, "attach"]);
+Route::delete("projects/{idProject}/tasks/{taskId}/tags/{tagId}", [TagController::class, "detach"]);
 
 
 #profile

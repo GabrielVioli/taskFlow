@@ -27,13 +27,10 @@ class ProjectsController extends Controller
         $validateProject = $request->validated();
         $record = Project::create($validateProject);
 
-        if($record){
-            return response()->json([
-                "message" => "Project created",
-                "data" => $record
-            ], 201);
-        }
-
+        return response()->json([
+            "message" => "Project created",
+            "data" => $record
+        ], 201);
     }
 
     /**
@@ -45,6 +42,7 @@ class ProjectsController extends Controller
         if($project){
             return response()->json($project);
         }
+
 
         return response()->json([
             "message" => "Project not found"
